@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.getkeepsafe.dexcount'
+
+buildscript {
+    repositories {
+        mavenCentral() // or jcenter()
+    }
+
+    dependencies {
+        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2'
+    }
+}
+
+android {
+    signingConfigs {
+        release {
+            keyAlias 'key0'
+            keyPassword 'myVUNGLE123'
+            storeFile file('/Users/varsha.hanji/Documents/AndroidKeyStore.jks')
+            storePassword 'myVUNGLE123'
+        }
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.varshahanji.ieandroidsizeanalysis"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0-rc01'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    // Vungle SDK
+    implementation 'com.github.vungle:vungle-android-sdk:6.3.17'
+    // Recommended Google Play Services
+//    implementation 'com.google.android.gms:play-services-basement:15.0.1'
+//    // Optional Google Play Services
+//    implementation 'com.google.android.gms:play-services-ads-identifier:15.0.1'
+//    implementation 'com.google.android.gms:play-services-location:15.0.1'
+    implementation 'com.android.support:design:28.0.0-rc01'
+}

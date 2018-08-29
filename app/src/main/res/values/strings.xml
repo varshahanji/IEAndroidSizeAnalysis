@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">IEAndroidSizeAnalysis</string>
+    <string name="button">Button</string>
+    <string name="Initialisation">Initialise SDK</string>
+    <string name="PlId1">PlacementId1</string>
+    <string name="plid2">PlacementId2</string>
+    <string name="textBox"></string>
+    <string name="ok">ok</string>
+    <string name="SuccessfulInitialization">SDK initialised successfully.</string>
+
+</resources>
